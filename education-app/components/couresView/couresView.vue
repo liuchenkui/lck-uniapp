@@ -14,14 +14,14 @@
 			</view>
 		</view>
 		<view class="course">
-			<view class="course-item" v-for="item in couresList" :key="item.id">
+			<view class="course-item" v-for="item in couresList" :key="item.id" @click="toDetail(item.id)">
 				<view class="course-img">
 					<image :src="item.mainImage" mode=""></image>
 					<view class="course-time">
 						{{ item.totalTime }}
 					</view>
 				</view>
-				<view class="course-text">
+				<view class="course-text">	
 					<view class="first-text">
 						{{ item.title }}
 					</view>
@@ -47,7 +47,16 @@
 		name: "courseView",
 		props: ['couresList', 'titles'],
 		setup() {
+			// 跳转详情页
+			const toDetail = (id) => {
+				uni.navigateTo({
+					url:`/pages/detailView/detailView?id=${id}`
+				})
+			}
 			
+			return {
+				toDetail
+			}
 		}
 	}
 </script>

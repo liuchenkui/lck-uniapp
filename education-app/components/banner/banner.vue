@@ -28,7 +28,6 @@
 			const swiperItem = (e) => {
 				ctx.emit('swiperItem', props.banners[e.detail.current].background)
 			}
-			
 			return {
 				swiperItem
 			}

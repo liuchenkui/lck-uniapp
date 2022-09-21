@@ -16,7 +16,7 @@
 						1979年07月12日 · 4657赞
 					</view>
 
-				</view>
+				</view> 4X
 			</view>
 			<view class="right">
 				<image

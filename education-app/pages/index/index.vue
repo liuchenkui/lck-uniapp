@@ -69,6 +69,7 @@
 	} from '@dcloudio/uni-app'
 	export default {
 		setup() {
+			
 			const data = reactive({
 				Background: '#006C00', // 搜索框背景色
 				scrollTop: '', // 滚动条高度
@@ -82,7 +83,6 @@
 				pageSize: 10, // 付费精选条数
 				page: 1 // 付费精选页数
 			})
-
 			// 轮播图背景色
 			const swiperItem = (bgc) => {
 				if (data.scrollTop >= 200) {

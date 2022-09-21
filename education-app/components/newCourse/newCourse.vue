@@ -1,5 +1,5 @@
 <template>
-	<view class="pay-content" v-for="item in latestList" :key="item.id">
+	<view class="pay-content" v-for="item in latestList" :key="item.id" @click="toDetail(item.id)">
 		<div class="img-box">
 			<image :src="item.mainImage" mode=""></image>
 			<view class="course-time">
@@ -28,7 +28,16 @@
 		name: "newCourse",
 		props: ['latestList'],
 		setup() {
-
+			// 跳转详情页
+			const toDetail = (id) => {
+				uni.navigateTo({
+					url:`/pages/detailView/detailView?id=${id}`
+				})
+			}
+			
+			return {
+				toDetail
+			}
 		}
 	}
 </script>
