@@ -6,7 +6,7 @@
 		</view>
 		<view class="cate-box">
 			<scroll-view scroll-y="true" class="left" :show-scrollbar="false">
-				<view v-for="item,index in listData" :key="item.id" @click="selectItem(index)">
+				<view v-for="(item,index) in listData" :key="item.id" @click="selectItem(item, index)">
 					<view :class="{'left-item':true, 'active': Idx == index}">
 						{{ item.name }}
 					</view>
@@ -16,7 +16,7 @@
 
 			<view class="right">
 				<view class="right-box">
-					<view class="right-item" v-for="child in listData[Idx].labelList" :key="child.id">
+					<view class="right-item" v-for="(child,index) in list" :key="index">
 						{{ child.name }}
 					</view>
 				</view>
@@ -26,20 +26,31 @@
 </template>
 
 <script>
-	import { list } from '../../api/index.js'
-	import { reactive, toRefs } from 'vue'
+	import {
+		list
+	} from '../../api/index.js'
+	import {
+		ref,
+		reactive,
+		toRefs
+	} from 'vue'
 	export default {
 		setup() {
 			const data = reactive({
 				listData: [],
+				list: [],
 				Idx: 0
 			})
+			// 分类
 			list().then(res => {
-				console.log(res);
+				// console.log(res);
 				data.listData = res.data
+				data.list = res.data[0].labelList
 			})
-			const selectItem = (index) => {
+			// tab栏切换
+			const selectItem = (item,index) => {
 				data.Idx = index
+				data.list = item.labelList
 			}
 			return {
 				...toRefs(data),
@@ -59,6 +70,7 @@
 		text-align: center;
 		font-weight: 600;
 		position: relative;
+
 		image {
 			position: absolute;
 			right: 10rpx;
@@ -67,6 +79,7 @@
 			height: 50rpx;
 		}
 	}
+
 	.active {
 		color: #345dc2 !important;
 	}
@@ -106,16 +119,18 @@
 
 			.right-box {
 				width: 100%;
-				padding: 5%;
+				padding: 5% 1%;
 
 				.right-item {
 					display: inline-block;
-					padding: 2px 8px;
-					box-sizing: border-box;
+					width: 78px;
+					text-align: center;
+					height: 31px;
+					line-height: 31px;
 					border-radius: 30rpx;
 					border: 1px solid #bbb;
 					margin: 10rpx;
-					font-size: 30rpx;
+					font-size: 23rpx;
 				}
 			}
 		}

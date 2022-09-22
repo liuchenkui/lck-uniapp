@@ -132,9 +132,7 @@
 			})
 			// console.log(route.query.id);
 			const back = () => {
-				uni.switchTab({
-					url: '/pages/index/index'
-				})
+				uni.navigateBack({})
 			}
 			const data = reactive({
 				detailList: {}, // 详情数据
