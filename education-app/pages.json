@@ -44,6 +44,47 @@
 				"navigationBarBackgroundColor": "#345dc2"
             }
         }
+		,{
+            "path" : "pages/my/study",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        }
+		,{
+            "path" : "pages/my/setting",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom",
+                "enablePullDownRefresh": false
+            }
+        }
+		,{
+            "path" : "pages/my/user",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人资料",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+            }
+        }
+		,{
+            "path" : "pages/my/about",
+            "style" :                                                                                    
+            {
+				"navigationStyle": "custom",
+                "enablePullDownRefresh": false
+            }
+        }
+		,{
+            "path" : "pages/my/feedback",
+            "style" :                                                                                    
+            {
+                "navigationStyle": "custom",
+                "enablePullDownRefresh": false
+            }
+        }
         ,{
             "path" : "pages/searchView/searchView",
             "style" :                                                                                    
@@ -57,7 +98,7 @@
             "path" : "pages/loginView/loginView",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationStyle": "custom",
                 "enablePullDownRefresh": false
             }
             
@@ -85,6 +126,24 @@
             "style" :                                                                                    
             {
                 "navigationStyle": "custom",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/order/order",
+            "style" :
+            {
+                "navigationBarTitleText": "我的订单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+		,{
+            "path" : "/pages/order/mybalance",
+            "style" :
+            {
+                "navigationBarTitleText": "我的订单",
                 "enablePullDownRefresh": false
             }
             

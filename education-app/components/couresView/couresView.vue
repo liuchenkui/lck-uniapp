@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view class="text">
+		<view class="text" v-if="titles">
 			<view class="left">
 				<view class="left-text">
 					{{ titles }}
