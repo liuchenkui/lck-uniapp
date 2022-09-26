@@ -80,7 +80,7 @@
 			})
 			// 返回
 			const back = () => {
-				router.push('/pages/article/article')
+				router.back()
 			}
 
 			return {

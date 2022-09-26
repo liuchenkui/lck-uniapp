@@ -69,11 +69,21 @@
 		})
 	}
 	const backLogin = () => {
-		localStorage.clear()
-		uni.navigateBack({})
-		uni.showToast({
-			icon: 'success',
-			title: '退出成功'
+		uni.showModal({
+			title: '确定退出登录？',
+			content: '退出后不会删除任何历史数据',
+			success: function (res) {
+				if(res.confirm) {
+					localStorage.clear()
+					uni.navigateBack({})
+					uni.showToast({
+						icon: 'success',
+						title: '退出成功'
+					})
+				} else if(res.cancel) {
+					
+				}
+			}
 		})
 	}
 	

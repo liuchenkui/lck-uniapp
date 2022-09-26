@@ -16,7 +16,7 @@
 
 			<view class="right">
 				<view class="right-box">
-					<view class="right-item" v-for="(child,index) in list" :key="index">
+					<view class="right-item" v-for="(child,index) in list" :key="index" @click="toContent(child.name,child.id)">
 						{{ child.name }}
 					</view>
 				</view>
@@ -34,8 +34,12 @@
 		reactive,
 		toRefs
 	} from 'vue'
+	import { useRouter } from 'vue-router'
 	export default {
 		setup() {
+			
+			const router = useRouter()
+			
 			const data = reactive({
 				listData: [],
 				list: [],
@@ -52,9 +56,15 @@
 				data.Idx = index
 				data.list = item.labelList
 			}
+
+			const toContent = (name, id) => {
+				router.push(`/pages/content/content?name=${name}&id=${id}`)
+			}
+			
 			return {
 				...toRefs(data),
-				selectItem
+				selectItem,
+				toContent
 			}
 		}
 	}

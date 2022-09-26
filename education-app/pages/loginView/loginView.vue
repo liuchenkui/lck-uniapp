@@ -97,7 +97,7 @@
 						console.log(res);
 						localStorage.setItem('userInfo', JSON.stringify(res.data.userInfo))
 						localStorage.setItem('mxgEducationToken', res.data.refresh_token)
-						router.go(-1)
+						router.push('/pages/my/my')
 						uni.showToast({
 							icon: 'success',
 							title: '登录成功'

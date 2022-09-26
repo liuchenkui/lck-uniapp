@@ -89,7 +89,7 @@
 					<couresView :couresList="item.list"></couresView>
 					<view class="purchase">
 						<h3>￥{{ item.groupPrice }} <s>￥{{ item.totalPrice }}</s> </h3>
-						<p>购买套餐</p>
+						<p @click="toConfirm(item)">购买套餐</p>
 					</view>
 				</view>
 				
@@ -203,13 +203,19 @@
 			const closePopup = () => {
 				popupCoupon.value.close()
 			}
+			
+			const toConfirm = (item) => {
+				router.push(`/pages/order/confirm?list=${JSON.stringify(item)}`)
+			}
+			
 			return {
 				...toRefs(data),
 				changeTab,
 				back,
 				openVideo,
 				popupCoupon,
-				closePopup
+				closePopup,
+				toConfirm
 			}
 		}
 	}

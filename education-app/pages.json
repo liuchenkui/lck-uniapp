@@ -148,6 +148,25 @@
             }
             
         }
+        ,{
+            "path" : "pages/content/content",
+            "style" :                                                                                    
+            {
+                "navigationStyle": "custom",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+		,{
+            "path" : "pages/order/confirm",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "确认购买",
+                "enablePullDownRefresh": false,
+				"navigationBarBackgroundColor": "#fff"
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

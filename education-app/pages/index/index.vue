@@ -9,8 +9,8 @@
 		</view>
 		<!-- 分类搜索 -->
 		<view class="cate-box">
-			<view v-for="item in navList" :key="item.id">{{ item.name }}</view>
-			<view>全部分类</view>
+			<view v-for="item in navList" :key="item.id" @click="toContent(item.name, item.id)">{{ item.name }}</view>
+			<view @click="toContent('全部分类', 9)">全部分类</view>
 		</view>
 		<view class="list-container">
 			<!-- 热门推荐 -->
@@ -67,8 +67,11 @@
 		onPullDownRefresh,
 		onReachBottom
 	} from '@dcloudio/uni-app'
+	import { useRouter } from 'vue-router'
 	export default {
 		setup() {
+			
+			const router = useRouter()
 			
 			const data = reactive({
 				Background: '#006C00', // 搜索框背景色
@@ -159,10 +162,15 @@
 				})
 			})
 			
+			const toContent = (name, id) => {
+				router.push(`/pages/content/content?name=${name}&id=${id}`)
+			}
+			
 			return {
 				...toRefs(data),
 				swiperItem,
-				scrolTop
+				scrolTop,
+				toContent
 			}
 		}
 	}

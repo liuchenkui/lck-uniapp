@@ -1,30 +1,15 @@
 <template>
 	<view>
 		<!-- 搜索区域 -->
-		<myInput></myInput>
+		<myInput v-model="searchVal" @searchOk="searchOk"></myInput>
 		
 		<view class="title">
 			热门搜索
 		</view>
 		
 		<view class="cate-box">
-			<view class="cate-item">
-				java
-			</view>
-			<view class="cate-item">
-				java
-			</view>
-			<view class="cate-item">
-				java
-			</view>
-			<view class="cate-item">
-				java
-			</view>
-			<view class="cate-item">
-				java
-			</view>
-			<view class="cate-item">
-				java
+			<view class="cate-item" v-for="item in list" :key="item.id" @click="toContent(item.name, item.id)">
+				{{ item.name }}
 			</view>
 		</view>
 		
@@ -45,11 +30,52 @@
 </template>
 
 <script>
+	import { reactive, toRefs } from 'vue'
+	import { useRouter } from 'vue-router'
 	export default {
-		data() {
+		setup() {
+			
+			const router = useRouter()
+			
+			const data = reactive({
+				list: [
+					{
+						name: 'java',
+						id: 1
+					},{
+						name: 'python',
+						id: 2
+					},{
+						name: 'Vue.js',
+						id: 3
+					},{
+						name: 'React',
+						id: 4
+					},{
+						name: 'SpringBoot',
+						id: 5
+					},{
+						name: 'SpringCloud',
+						id: 6
+					},
+				],
+				searchVal: ''
+			})
+			
+			const toContent = (name,id) => {
+				router.push(`/pages/content/content?name=${name}&id=${id}`)
+			}
+			
+			const searchOk = () => {
+				data.searchVal = ''
+				router.push(`/pages/content/content`)
+			}
+			
 			return {
-				
-			};
+				...toRefs(data),
+				toContent,
+				searchOk
+			}
 		}
 	}
 </script>

@@ -3,7 +3,7 @@
 		<view class="top">
 			<view class="lt"><text class="lt-text" @click="back"></text></view>
 			<view class="center">
-				<input type="text" placeholder="搜索你想要的内容">
+				<input type="text" v-model="modelValue" @confirm="searchOk" placeholder="搜索你想要的内容">
 			</view>
 			<view @click="back">取消</view>
 		</view>
@@ -11,16 +11,24 @@
 </template>
 
 <script>
-	import { useRouter } from 'vue-router'
+	import { useRoute, useRouter } from 'vue-router'
 	export default {
 		name:"myInput",
-		setup() {
+		props: ['modelValue'],
+		setup(props, ctx) {
 			const router = useRouter()
+			const route = useRoute()
 			const back = () => {
 				router.push('/pages/index/index')
 			}
+			
+			const searchOk = (e) => {
+				ctx.emit('searchOk', e.detail.value)
+			}
+			
 			return {
-				back
+				back,
+				searchOk
 			}
 		}
 	}
