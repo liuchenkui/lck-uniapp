@@ -14,7 +14,7 @@
 			const data = reactive({
 				list: []
 			})
-			data.list = route.query.list
+			data.list = JSON.parse(route.query.list)
 			console.log(data.list);
 			
 			return {
