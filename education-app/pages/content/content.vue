@@ -208,25 +208,24 @@
 			}
 			// 打开弹框
 			const openPop = (id) => {
-				// console.log(id);
-				if(id == 2 || id == 3 && data.popFlag) {
-					popup.value.close()
-					data.popFlag2 = false
-					data.popFlag3 = false
-					return 
-				}
-				if(id == 1 || id == 3 && data.popFlag2) {
-					popup.value.close()
-					data.popFlag1 = false
-					data.popFlag3 = false
-					return
-				}
-				if(id == 1 || id == 2 && data.popFlag3) {
-					popup.value.close()
-					data.popFlag = false
-					data.popFlag2 = false
-					return
-				}
+				// if(id == 2 || id == 3 && data.popFlag) {
+				// 	popup.value.close()
+				// 	data.popFlag2 = false
+				// 	data.popFlag3 = false
+				// 	return 
+				// }
+				// if(id == 1 || id == 3 && data.popFlag2) {
+				// 	popup.value.close()
+				// 	data.popFlag1 = false
+				// 	data.popFlag3 = false
+				// 	return
+				// }
+				// if(id == 1 || id == 2 && data.popFlag3) {
+				// 	popup.value.close()
+				// 	data.popFlag = false
+				// 	data.popFlag2 = false
+				// 	return
+				// }
 				if (id == 1) {
 					data.popFlag = !data.popFlag
 				} else if (id == 2) {
